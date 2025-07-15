@@ -30,6 +30,4 @@ I'm still writing this part...
 ### Final Notes?
 I'm still writing this part...
 
-Try it out ! 
-
-# pixel-pomo
+Try it out ! https://pixel-pomo.vercel.app
