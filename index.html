@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/script.js" defer></script>
+    <title>Pixel Pomo</title>
+    <link rel="icon" type="image/svg+xml" href="./images/icon.png" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hi+Melody&family=Itim&family=Merienda:wght@300..900&family=Micro+5&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <section class="main">
+        <section class="container">
+
+            <!--Welcome text-->
+            <header>
+                <h1>Welcome! </h1>
+                <h2> This is your 25min pomodoro timer</h2>
+            </header>
+
+            <!--Pomodoro section -->
+            <div class="timer">
+                <div id="message">25:00</div>
+            </div>
+
+            <!---Progress bar-->
+            <section class=progressBar>
+                <div class="bean">
+                    <img src="./images/bean.png" alt="Pixel image of a bean that shows progress">
+                </div>
+                <div class="bean">
+                    <img src="./images/bean.png" alt="Pixel image of a bean that shows progress">
+                </div>
+                <div class="bean">
+                    <img src="./images/bean.png" alt="Pixel image of a bean that shows progress">
+                </div>
+                <div class="bean">
+                    <img src="./images/bean.png" alt="Pixel image of a bean that shows progress">
+                </div>
+                <div class="bean">
+                    <img src="./images/bean.png" alt="Pixel image of a bean that shows progress">
+                </div>
+            </section>
+
+            <!--Need a pause? section -->
+            <div id="stopPauseBox">
+                <input type="checkbox" id="stopPause" name="stopPause" value="stopPause" />
+                <label for="stopPause">Manually starts the break</label>
+            </div>
+
+            <!--Control Buttons section -->
+            <div class="buttons">
+                <button id="startBtn" class="button" aria-label="Start timer">
+                    <img src="./images/play.png" alt="Start">
+                </button>
+                <button id="pauseBtn" class="button" aria-label="Pause timer">
+                    <img src="./images/pause.png" alt="Pause">
+                </button>
+                <button id="resetBtn" class="button" aria-label="Reset timer">
+                    <img src="./images/reset.png" alt="Reset">
+                </button>
+            </div>
+
+
+            <!--To do section -->
+            <section class="todo">
+
+                <h3>TASKS </h3>
+                <div id="messageTodo"></div>
+
+                <!--Input field section -->
+                <div id="inputSection">
+                    <label for="sessionInput"> I will achieve this session :</label>
+                    <input type="text" id="sessionInput" placeholder="Write your task">
+                    <button onclick="sendTask()" class="taskButton" id="addButton" aria-label="Button to add a task">Add
+                        task</button>
+                </div>
+
+                <!--Task list section -->
+                <div id="resultSection">
+                    <ul id="taskList"></ul>
+                    <button onclick="eraseTask()" class="taskButton" id="eraseButton"
+                        aria-label="Button to erase checked task"> Erase
+                        done tasks</button>
+                </div>
+
+            </section>
+        </section>
+
+</body>
+<footer> Made with lots of coffee by <a href="https://github.com/helico32"> Angéla Binot</a> </footer>
+
+</html>

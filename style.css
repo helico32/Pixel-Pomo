@@ -1,0 +1,279 @@
+/* ______________________________________________________*/
+/* BASE VARIABLES */
+/* ______________________________________________________*/
+/* Base */
+:root {
+  /* Base colors */
+  --color-primary: hsl(30, 87%, 29%);
+  --color-secondary: hsl(30, 34%, 39%);
+  --color-accent: hsl(30, 37%, 59%);
+  --color-light: hsl(34, 78%, 91%);
+  --color-dark-brown: hsl(30, 44%, 31%);
+  --color-dark-red: hsl(0, 74%, 21%);
+
+  /* Colors with opacity */
+  --color-primary-transparent: hsla(30, 87%, 29%, 0.3);
+  --color-light-transparent: hsla(34, 78%, 91%, 0.7);
+  --color-accent-transparent: hsla(34, 57%, 70%, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-primary-transparent);
+}
+
+/* The Container */
+.container {
+  min-height: auto; 
+  height: auto; 
+  width: min(90%, 60rem);
+  background-color: var(--color-light);
+  border: 0.6rem solid var(--color-secondary);
+  border-radius: 5rem;
+  margin: 2rem 2rem 0rem 2rem;
+  padding: 3.5rem 2rem;
+}
+
+/* ______________________________________________________*/
+/* TIMER/POMODORO SECTION */
+/* ______________________________________________________*/
+
+/* Text */
+header {
+  text-align: center;
+  margin-bottom: 1.3rem;
+  font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+  color: rgb(208, 138, 10);
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Pomodoro */
+.timer {
+  width: min(90%, 25rem); /* Responsive */
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#message {
+  color: var(--color-accent);
+  font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+}
+
+/* Progess bar section */
+.progressBar {
+  display: flex;
+  justify-content: center;
+  padding: 0.6rem;
+}
+
+.bean {
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.3;
+  background-color: var(--color-accent);
+}
+
+/* Buttons of pomodoro */
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+  gap: 0.2rem;
+}
+
+.buttons img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.button {
+  border-color: transparent;
+  background-color: var(--color-accent-transparent);
+  margin: 0.3rem;
+  padding: 0.3rem;
+  border-radius: 45%;
+  height: fit-content;
+  width: fit-content;
+}
+
+.button:hover {
+  scale: 110%;
+}
+
+.button:disabled {
+  color: gray;
+  background-color: lightgray;
+}
+
+/* StopBreak checkbox*/
+#stopPauseBox {
+  display: flex;
+  justify-content: end;
+  margin-right: 1.5rem;
+}
+
+#stopPauseBox label {
+  color: #856342;
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9rem;
+  padding-left: 0.2rem;
+}
+
+
+/* ______________________________________________________*/
+/* TO DO SECTION */
+/* ______________________________________________________*/
+
+/* TO DO container & content */
+.todo {
+  width: min(90%, 20rem); /* Responsive */
+  max-width: 20rem; /* Without it the container becomes huge because .todo pushes it when the user writes several lignes as a task.*/
+  padding-left: 1rem;
+  margin: 2.5rem auto 0 auto;
+  background: var(--color-secondary);
+  border-radius: 2rem;
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+.todo div,
+h3 {
+  display: flex;
+  justify-content: center;
+  color: var(--color-light);
+  padding-top: 0.6rem;
+  gap: 0.75rem;
+}
+
+.todo h3 {
+  font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+/* Error message */
+#messageTodo {
+  color: var(--color-dark-red);
+}
+
+/* Field container & content in to do */
+#inputSection {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 0.6rem;
+}
+
+#inputSection input[type="text"] {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--color-light);
+  background-color: var(--color-secondary);
+  border-color: var(--color-light-transparent);
+  border-radius: 2rem;
+  padding: 0.2rem;
+  padding-left: 0.6rem;
+}
+
+input::placeholder {
+  color: var(--color-light-transparent);
+}
+
+/* Tasklist format */
+#resultSection {
+  display: none;
+}
+
+#taskList {
+  list-style: none;
+}
+
+#taskList li {
+  margin-bottom: 0.3rem;
+}
+
+#taskList li:has(input:checked) {
+  text-decoration-line: line-through;
+  color: var(--color-dark-brown);
+}
+
+#taskList input[type="checkbox"] {
+  margin-right: 0.3rem;
+}
+
+
+/* Buttons of TO DO */
+.taskButton {
+  background-color: var(--color-accent);
+  border: 0.2rem solid hsl(34, 78%, 91%, 0.2);
+  border-radius: 2rem;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.3rem;
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.taskButton:hover {
+  background-color: var(--color-accent-transparent);
+  scale: 105%;
+}
+
+#addButton {
+  color: var(--color-dark-brown);
+  margin: 0 auto;
+  /* Centre le bouton dans sa cellule grid */
+}
+
+#eraseButton {
+  margin: 0.6rem;
+  color: var(--color-dark-red)
+}
+
+
+/* ______________________________________________________*/
+/* FOOTER */
+/* ______________________________________________________*/
+footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  font-size: 1.25rem;
+  font-family: "Micro 5", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #bd966e;
+}
+
+footer a {
+  margin-left: 0.4rem;
+  text-decoration-color: hsl(30, 37%, 59%, 0.5);
+  color: var(--color-light);
+}
