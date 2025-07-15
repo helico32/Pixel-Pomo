@@ -16,7 +16,7 @@ let work = 1500;
 let pause = 300;
 let hasBeenReset = false;
 let hasBeenPaused = false;
-let audio = new Audio('gong_audio.mp3');
+let audio = new Audio('../gong_audio.mp3');
 
 //TIME FORMAT IN MINUTES
 function timeFormat(totalSeconds) {
@@ -42,8 +42,8 @@ function countdown(type) {
     pauseBtn.disabled = false;
     stopPause.disabled = false;
     if (type === 'work') {
-        if (hasBeenPaused = true){
-        audio.play(); // Play audio only if there was a break before.
+        if (hasBeenPaused === true) {
+            audio.play(); // Play audio only if there was a break before.
         }
         hasBeenPaused = false;
         message.style.fontSize = ''; // Resets the size of the timer numbers which changes with the pause message.
@@ -182,12 +182,14 @@ const resultSection = document.getElementById('resultSection');
 const taskList = document.getElementById('taskList');
 const sessionInput = document.getElementById('sessionInput');
 
+
 // SUBMIT WITH ENTER
 document.getElementById("sessionInput").addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         sendTask();
     }
 });
+
 
 //SHOW/HIDE TASKLIST
 /* It shows or hides the list of tasks depending on the length of the array named task. It's a cleaner look. */
@@ -197,11 +199,38 @@ function showResultSection() {
 }
 
 
+//ARRAY OF CHECKBOXES
+function getCheckboxes() {
+    return Array.from(document.querySelectorAll("#taskList li input[type='checkbox']"));
+}
+
+
+//RECUP CHECKBOXES STATES
+/*  
+In an array add boleens of checked or not by map checkbox which contains all the checkbox. 
+With the help of the index of the array task compare checklist boleans and associated with its index recreate a proper formatted HTML tasklist with the right checkbox states. (Similar logic as erase task() )Clears message if there is one. Calls the function to show or not the ResultSection depending on its new length. 
+ */
+function recuperateChecklist(preserveCheckedStates = false) {
+    let checkedStates = [];
+
+    if (preserveCheckedStates === true) {
+        const checkbox = getCheckboxes()
+        checkedStates = checkbox.map(c => c.checked);
+    }
+
+    taskList.innerHTML = task.map((taskItem, index) => {
+        const isChecked = (preserveCheckedStates === true && checkedStates[index]) ? 'checked' : '';
+        return `<li><input type="checkbox" ${isChecked}>${taskItem}</li>`;
+    }).join('');
+
+    messageTodo.innerHTML = "";
+    showResultSection();
+}
+
 //ADD TASKS
 /* This is the most important function of this section of the script. It adds tasks to the list. First it retrieves what was written in the html field. Then trims extra spaces. 
 If it is empty it shows a message. If there are 5 tasks in the list (array task) it shows a message.
-If the "if" statements don't apply, the written value is added to the array "task" with the format Upper case then Lower case for the rest. And the field is cleared, ready for a new input by the user. At the end the function showResultSection is called to check if there are enough tasks to show (block) that part of the script to the user. The rest of the script is HTML format into a checkbox list and a cleaner look.
-The written order is important: first modify the data, then check if it has to show it, finally in what format.*/
+If the "if" statements don't apply, the written value is added to the array "task" with the format Upper case then Lower case for the rest. And the field is cleared, ready for a new input by the user. The the function recuperateChecklist recuparete the checkboxes states and format the tasklist showing or not depending on the lenght of it. */
 function sendTask() {
     const input = document.getElementById('sessionInput');
     const inputValue = input.value.trim();
@@ -219,11 +248,7 @@ function sendTask() {
     task.push(inputValue.charAt(0).toUpperCase() + inputValue.slice(1).toLowerCase());
     input.value = '';
 
-    showResultSection();
-
-    taskList.innerHTML = task.map((taskItem) => `<li><input type="checkbox">${taskItem}</li>`).join('');  //The format in which the list is shown in HTML to make the array into a list with checkboxes.
-
-    messageTodo.innerHTML = "";
+    recuperateChecklist(true);
 }
 
 //ERASE TASKS
@@ -235,17 +260,21 @@ Task is an array with the values (string).
 Checkbox contains an array with only if input is checked or not (DOM elements).
 Index helps to make the link between the two. */
 function eraseTask() {
-    const checkbox = Array.from(document.querySelectorAll("#taskList li  input[type='checkbox']"));
+    const checkbox = Array.from(document.querySelectorAll("#taskList li input[type='checkbox']"));
     task = task.filter((i, index) => {
         return !checkbox[index].checked;
     });
 
-    /*  Shows the taskList in HTML with the proper format. Clears message if there is one. Calls the function to show or not the ResultSection depending on its new length. */
-    taskList.innerHTML = task.map((taskItem) => `<li><input type="checkbox">${taskItem}</li>`).join('');
-    messageTodo.innerHTML = "";
-    showResultSection();
+    recuperateChecklist(false);
 }
+function eraseTask() {
+    const checkboxes = getCheckboxes();
+    task = task.filter((i, index) => {
+        return !checkboxes[index].checked;
+    });
 
+    recuperateChecklist(false); // Format of the list and states of the checkboxes (unchecked)
+}
 
 //BUTTONS EVENT LISTENERS
 startBtn.addEventListener('click', startTimer);
