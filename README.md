@@ -17,14 +17,20 @@ I started this project after 2 months of React theory so I was really rusty in J
 
 ### What went right?
 A timer, a loading bar, pixel art, a lot of new things. 
+
 A responsive design with the help of adequate units. This project can be resized to put in the corner of the screen.
+
 It was my first time implementing time related elements in my creations. So the timer and the loading bar that changes during the break are elements that I am proud of. 
+
 I specially created cozy pixel art (buttons and progress bar) on the coffee theme. It was my first time doing pixel art, but as a 90's kid who grew up playing Pokemon, I had to do it at least once. The design is simple and minimalist without being soulless it is the wanted effect.
+
 I annotated a lot my code because that was lacking in my last project, also it will help me understand my writing choices in a few months.
 
 ### What were the challenges? 
 As I did this on a long time period, I forgot what things meant and the logics. It made me understand the importance of annotations.
+
 For every big part of the JS script I erased all my code once and rewrote it trying to implement the KISS method. It was a good practice to understand JS and trying different logics.
+
 I wasn’t able to cut the JS script into parts as I wanted, the function eraseTask blocked the to do list section to be on a separate JS files. It should probably be is rewritten in a different logic but I don’t know how yet. I am leaving the JS folder for that.
 
 ### Future features? 
