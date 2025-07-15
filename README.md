@@ -7,7 +7,7 @@ The Pomodoro Technique is a time management strategy designed to reduce procrast
 ### The ideal user
 This app was developed keeping in mind my experience with pomodoro games/mobile apps and the testimonies heard in productivity communities over the years. 
 
-Personna: Young self employed professional, takes time to go into focus mode, easily overwhelm by tasks and distracted by design, is motivated by seeing progress.
+Personna: Student used to pomodoros but unsatisfied by current apps, takes time to go into focus mode, easily overwhelm by tasks and distracted by design, is motivated by seeing progress.
 
 That's why I created a minimalistic design but with a heart. The theme is coffee, giving a cozy vibe reinforced by the pixel design to differenciate the pomodoro in the market. Pixel coffee beans are loading, reminding the user of the incoming coffee break.  
 
