@@ -219,7 +219,7 @@ function recuperateChecklist(preserveCheckedStates = false) {
     }
 
     taskList.innerHTML = task.map((taskItem, index) => {
-        const isChecked = (preserveCheckedStates === true && checkedStates[index]) ? 'checked' : '';
+        const isChecked = (preserveCheckedStates === true && checkedStates[index]=== true) ? 'checked' : '';
         return `<li><input type="checkbox" ${isChecked}>${taskItem}</li>`;
     }).join('');
 
@@ -259,14 +259,6 @@ So checkbox[index].checked is to access the boolean property of each DOM element
 Task is an array with the values (string). 
 Checkbox contains an array with only if input is checked or not (DOM elements).
 Index helps to make the link between the two. */
-function eraseTask() {
-    const checkbox = Array.from(document.querySelectorAll("#taskList li input[type='checkbox']"));
-    task = task.filter((i, index) => {
-        return !checkbox[index].checked;
-    });
-
-    recuperateChecklist(false);
-}
 function eraseTask() {
     const checkboxes = getCheckboxes();
     task = task.filter((i, index) => {
