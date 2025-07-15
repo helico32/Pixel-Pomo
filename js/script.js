@@ -16,7 +16,7 @@ let work = 1500;
 let pause = 300;
 let hasBeenReset = false;
 let hasBeenPaused = false;
-
+let audio = new Audio('gong_audio.mp3');
 
 //TIME FORMAT IN MINUTES
 function timeFormat(totalSeconds) {
@@ -42,6 +42,9 @@ function countdown(type) {
     pauseBtn.disabled = false;
     stopPause.disabled = false;
     if (type === 'work') {
+        if (hasBeenPaused = true){
+        audio.play(); // Play audio only if there was a break before.
+        }
         hasBeenPaused = false;
         message.style.fontSize = ''; // Resets the size of the timer numbers which changes with the pause message.
         work--;
