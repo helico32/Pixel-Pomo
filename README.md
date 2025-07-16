@@ -35,6 +35,7 @@ I wasn’t able to cut the JS script into parts as I wanted, the function eraseT
 
 ### Future features? 
 * A signal that the break is done (sound?) [Added 15/07]
+* A help button with explications on what is a Pomodoro & how to use it.
 * A loading bar that progress slowly and not by blocks. (More motivating but more distracting)
 * A checkbox to make appear a pixel animation that changes during break/work mode. The animation would be between the presentation text and the timer.
 * Open to new ideas: I made the decision to not add a text to signal « work mode » because I think the loading bar is explicit enough but real life testing with users would help me to understand the needs. I added the option to add a task to the task list with the enter key on the keyboard because of a test I did with a user.
