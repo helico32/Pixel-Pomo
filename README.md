@@ -1,6 +1,8 @@
 # Pixel Pomo
 This is my take on the « *simple timer/to do list app* ». A silent Pomodoro for those who don’t like to be interrupted during their focus mode. There is a checkbox to delay the break. A to do list limited to 5 tasks to not overwhelm oneself. Cozy, mindful and (obviously) productive.
 
+Try it out ! https://pixel-pomo.vercel.app
+
 ### What is a Pomodoro? 
 The Pomodoro Technique is a time management strategy designed to reduce procrastination. It involves working in the format of 25 minutes of a focused session, followed by 5 minutes of break. This cycle repeats until the tasks are done.
 
@@ -52,4 +54,3 @@ I wasn’t able to cut the JS script into parts as I wanted, the function eraseT
 ### Final Notes?
 This project helped me believe in my coding skills again. It was also an eye opener about some of my weaknesses.
 
-Try it out ! https://pixel-pomo.vercel.app
